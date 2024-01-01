@@ -2864,7 +2864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 899679671}
-  cameraDistance: -10
+  minSpeed: 2
+  minDistance: 0.4
+  fractionSpeed: 10
 --- !u!1 &609488663
 GameObject:
   m_ObjectHideFlags: 0
