@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private float dirX = 0f;
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 14f;
+    private float dirY = 0f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeedCap = 10f;
+    [SerializeField] private float jumpForce = 12f;
+    private float initialGravScale = 3.0f;
+    [SerializeField] private float gravScaleFactor = 2f;
 
     private enum MovementState { idle, running, jumping, falling }
 
@@ -26,18 +30,50 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        initialGravScale = rb.gravityScale;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // Player Movement
         dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        dirY = Input.GetAxisRaw("Vertical");
+        float acceleration = 0.0f;
+        if (rb.velocity.x * dirX < 0){ // Cancelling velocity is quicker than gaining it
+            acceleration = moveSpeed*2;
+        } else {
+            acceleration = moveSpeed;
+        }
+        rb.AddForce(new Vector2(dirX * acceleration * Time.deltaTime*1000, 0));
+
+        // Player will slide to a halt on the ground
+        if (dirX == 0.0f && dirY == 0.0f && IsGrounded()) {
+            rb.drag = 3f;
+        } else {
+            rb.drag = 0.02f;
+        }
+
+        // Speed Capping
+        if(rb.velocity.x > moveSpeedCap) {
+            rb.velocity = new Vector2(moveSpeedCap, rb.velocity.y);
+        } else if (-rb.velocity.x > moveSpeedCap){
+            rb.velocity = new Vector2(-moveSpeedCap, rb.velocity.y);
+        }
+
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             jumpSoundEffect.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, 0); // Allow jumping when still falling down, makes jumping easier.
+            rb.AddForce(new Vector2(0, jumpForce*100));
+        }
+
+        // Fall faster than you go up, more responsive
+        if (rb.velocity.y < -.2f){
+            rb.gravityScale = initialGravScale*gravScaleFactor;
+        } else {
+            rb.gravityScale = initialGravScale;
         }
 
         UpdateAnimationState();

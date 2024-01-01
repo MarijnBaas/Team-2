@@ -106,7 +106,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.01
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
@@ -180,8 +180,10 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 7
-  jumpForce: 14
+  moveSpeed: 5
+  moveSpeedCap: 10
+  jumpForce: 10
+  gravScaleFactor: 2
   jumpSoundEffect: {fileID: 2445220877556952562}
 --- !u!95 &9052176023227148528
 Animator:
