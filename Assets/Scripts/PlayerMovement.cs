@@ -23,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioSource jumpSoundEffect;
 
+    //Abilities
+    public bool doubleJumpEnabled = true; // Editable using unlock
+    private bool doubleJumpAvailable = false;
+    private float doubleJumpTimer = 0.0f;
+    [SerializeField] private float doubleJumpCooldown = 0.2f; // Prevents Double jumping too early, has to be >0 as otherwise the player will jump and double jump on the same frame.
+    [SerializeField] private float doubleJumpMultiplier = 0.8f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -61,12 +68,23 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(-moveSpeedCap, rb.velocity.y);
         }
 
-
+        //Jumping
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, 0); // Allow jumping when still falling down, makes jumping easier.
             rb.AddForce(new Vector2(0, jumpForce*100));
+            if (doubleJumpEnabled) {
+                doubleJumpAvailable = true;
+                doubleJumpTimer = Time.fixedTime;
+            }
+        }
+        //Double Jumping
+        if (Input.GetButtonDown("Jump") && doubleJumpAvailable && (Time.fixedTime - doubleJumpTimer > doubleJumpCooldown)) {
+            jumpSoundEffect.Play();
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(0, jumpForce*100*doubleJumpMultiplier));
+            doubleJumpAvailable = false;
         }
 
         // Fall faster than you go up, more responsive
