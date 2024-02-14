@@ -20,8 +20,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravScaleFactor = 2f;
 
     private enum MovementState { idle, running, jumping, falling }
-
     [SerializeField] private AudioSource jumpSoundEffect;
+
+    //trying wall jump
+    private bool isWallSliding = false;
+    [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private LayerMask wallLayer;
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    } 
+
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !IsGrounded() && dirX != 0f)
+        {
+            isWallSliding = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+
+    }
 
     //Abilities
     public bool doubleJumpEnabled = true; // Editable using unlock
@@ -43,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //Wall jumping
+        WallSlide();
+
+
         // Player Movement
         dirX = Input.GetAxisRaw("Horizontal");
         dirY = Input.GetAxisRaw("Vertical");
