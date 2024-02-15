@@ -20,14 +20,17 @@ public class NewBehaviourScript : MonoBehaviour
         {
             finishSound.Play();
             levelCompleted = true;
-            Invoke("CompleteLevel", 2f);
+            Invoke("CompleteLevel", 1f);
         }
     }
 
     private void CompleteLevel()
     {
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene("EndLevel");
+        /*
+            Un-hide Finish screen UI
+        */
+        Invoke("NextLevel", 1f); // remove when UI works
     }
 
     public void NextLevel()
