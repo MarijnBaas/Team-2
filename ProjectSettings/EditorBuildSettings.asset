@@ -26,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndLevel.unity
     guid: 7c7968fa6d5eea442bd17157b2504cfa
-  - enabled: 0
-    path: Assets/Scenes/Destroy.unity
-    guid: b202199ef58241540af515837ed43262
   m_configObjects: {}
