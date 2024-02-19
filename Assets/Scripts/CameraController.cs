@@ -15,6 +15,10 @@ public class CameraController : MonoBehaviour
         // transform.position = new Vector3(player.position.x, player.position.y, -10f);
 
         // Smooth follow
+        if(player == null) {
+            return;
+        }
+
         diff = player.position - transform.position;
 
         if(diff.magnitude > minDistance) {

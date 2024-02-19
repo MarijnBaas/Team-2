@@ -19,7 +19,7 @@
     <RootNamespace></RootNamespace>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFramework>netstandard2.1</TargetFramework>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -54,7 +54,7 @@
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
     <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneLinux64:24</UnityBuildTarget>
     <UnityVersion>2022.3.16f1</UnityVersion>
   </PropertyGroup>
@@ -63,72 +63,13 @@
     <Analyzer Include="/home/nicky/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/ICoord.cs" />
-    <Compile Include="Assets/2D_Destruction/Scripts/SpriteExploder.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/Level2.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/geom/LineSegment.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Site.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/Level1.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/geom/Circle.cs" />
-    <Compile Include="Assets/2D_Destruction/Scripts/ClipperHelper.cs" />
-    <Compile Include="Assets/Scripts/StickyPlatform.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/utils/IDisposable.cs" />
-    <Compile Include="Assets/2D_Destruction/Scripts/Explodable.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/MainMenu.cs" />
-    <Compile Include="Assets/2D_Destruction/Scripts/ExplodableAddon.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/geom/Polygon.cs" />
-    <Compile Include="Assets/Scripts/TimerManager.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/EdgeList.cs" />
-    <Compile Include="Assets/2D_Destruction/clipper_library/clipper.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Voronoi.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/Level3.cs" />
-    <Compile Include="Assets/Scripts/Checkpoint.cs" />
-    <Compile Include="Assets/Scripts/PlayerLife.cs" />
-    <Compile Include="Assets/Scripts/ItemCollector.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Edge.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/SiteList.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Halfedge.cs" />
-    <Compile Include="Assets/Scripts/PlayerMovement.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/StartMenu.cs" />
-    <Compile Include="Assets/Scripts/EndMenu.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/DelaunayHelpers.cs" />
-    <Compile Include="Assets/Scripts/WaypointFollower.cs" />
-    <Compile Include="Assets/Scripts/Finish.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Triangle.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/TutorialMenu.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/LR.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/geom/Winding.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/HalfedgePriorityQueue.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/EdgeReorderer.cs" />
-    <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Vertex.cs" />
-    <Compile Include="Assets/Scripts/MenuSwitch/LevelSelect.cs" />
-    <Compile Include="Assets/2D_Destruction/Scripts/ExplodableFragments.cs" />
-    <Compile Include="Assets/Scripts/Rotate.cs" />
-    <Compile Include="Assets/Scripts/CameraController.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/CasualGameBGM05/ReadMe.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
-    <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+    <Compile Include="Assets/Plugins/Delaunay/VectorExtensions.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/VoronoiCalculator.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/DelaunayTriangulation.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/Geom.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/VoronoiClipper.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/DelaunayCalculator.cs" />
+    <Compile Include="Assets/Plugins/Delaunay/VoronoiDiagram.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
