@@ -24,9 +24,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         playerDeath.Play();
+        GetComponent<Explodable>().explode();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");   
     }

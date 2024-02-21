@@ -183,8 +183,16 @@ MonoBehaviour:
   moveSpeed: 5
   moveSpeedCap: 10
   jumpForce: 10
-  gravScaleFactor: 2
+  gravScaleFactor: 1.66
   jumpSoundEffect: {fileID: 2445220877556952562}
+  wallSlidingSpeed: 0
+  wallCheck: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  doubleJumpEnabled: 1
+  doubleJumpCooldown: 0.2
+  doubleJumpMultiplier: 0.8
 --- !u!95 &9052176023227148528
 Animator:
   serializedVersion: 5
