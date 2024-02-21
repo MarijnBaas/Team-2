@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public int currentLevel = 0;
+    public static int currentLevel = 0;
     private AudioSource finishSound;
     private bool levelCompleted = false;
 
