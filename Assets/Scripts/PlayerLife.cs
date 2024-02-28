@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         playerDeath.Play();
+        Invoke("RestartLevel", 3.0f);
         GetComponent<Explodable>().explode();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");   
