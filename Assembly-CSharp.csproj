@@ -82,6 +82,7 @@
     <Compile Include="Assets/2D_Destruction/clipper_library/clipper.cs" />
     <Compile Include="Assets/2D_Destruction/Unity-delaunay/Delaunay/Voronoi.cs" />
     <Compile Include="Assets/Scripts/MenuSwitch/Level3.cs" />
+    <Compile Include="Assets/Scripts/MenuSwitch/LevelLoader.cs" />
     <Compile Include="Assets/Scripts/Checkpoint.cs" />
     <Compile Include="Assets/Scripts/PlayerLife.cs" />
     <Compile Include="Assets/Scripts/ItemCollector.cs" />
